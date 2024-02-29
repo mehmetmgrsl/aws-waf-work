@@ -24,6 +24,12 @@
 You will encounter a 403 Error, indicating that access is forbidden. This occurs because the IP address has been added to the block list within AWS WAF
 
 
+### Notes
+
+1. It is not possible to attach WAF directly to a Classic Load Balancer (CLB), because it is not supported. If you have to do it then one option would be creating a CloudFront distribution that uses the CLB as the origin and then attaching WAF to CloudFront.(4*)
+
+
+
 ### References
 
 1* https://aws.amazon.com/waf/
@@ -31,3 +37,5 @@ You will encounter a 403 Error, indicating that access is forbidden. This occurs
 2* https://github.com/trussworks/terraform-aws-wafv2
 
 3* https://github.com/iam-veeramalla/aws-devops-zero-to-hero/tree/main/day-24
+
+4* [Options for WAF with a Classic Load Balancer](https://repost.aws/questions/QUfDy21UgoQeqt0yDXUVRFIg/options-for-waf-with-a-classic-load-balancer)
